@@ -1,118 +1,447 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#f8f5ef">
-<meta name="description" content="Discover thoughtfully designed products at SANADI.">
-<title>SANADI — Play, Gather, Discover</title>
-<style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
-:root{--paper:#f8f5ef;--ink:#29231f;--muted:#817970;--line:#e5ded4;--accent:#b45e3e;--white:#fffdf9;--serif:'Playfair Display',Georgia,serif;--sans:'DM Sans',Arial,sans-serif}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}button,input,select{font:inherit}button,a{-webkit-tap-highlight-color:transparent}a{color:inherit;text-decoration:none}.announcement{background:var(--ink);color:#f8f5ef;text-align:center;padding:9px 14px;font-size:10px;letter-spacing:.16em;text-transform:uppercase}.header{height:78px;display:flex;align-items:center;justify-content:space-between;padding:0 5.2%;border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(248,245,239,.93);backdrop-filter:blur(12px);z-index:20}.brand{font:600 23px var(--serif);letter-spacing:.17em}.brand small{display:block;font:9px var(--sans);letter-spacing:.31em;text-align:center;margin-top:3px}.nav{display:flex;gap:30px;font-size:10px;letter-spacing:.15em;text-transform:uppercase}.nav a{position:relative}.nav a:after{content:'';height:1px;position:absolute;left:0;right:100%;bottom:-7px;background:var(--ink);transition:right .25s}.nav a:hover:after{right:0}.header-actions{display:flex;align-items:center;gap:17px}.icon-btn{border:0;background:none;color:var(--ink);cursor:pointer;padding:6px;position:relative;font-size:18px}.cart-count{position:absolute;right:-3px;top:-1px;background:var(--accent);color:white;border-radius:50%;font-size:9px;min-width:16px;height:16px;display:grid;place-items:center}.menu-toggle{display:none}.hero{min-height:530px;padding:65px 6% 70px;display:grid;grid-template-columns:1fr 1.05fr;align-items:center;gap:5%;overflow:hidden}.eyebrow{font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);font-weight:700}.hero h1{font:500 clamp(42px,5.4vw,76px)/1.08 var(--serif);letter-spacing:-.045em;margin:18px 0}.hero h1 em{font-weight:400}.hero-copy{max-width:390px;color:var(--muted);line-height:1.8;font-size:13px}.button{display:inline-flex;align-items:center;justify-content:center;gap:13px;background:var(--ink);color:white;border:1px solid var(--ink);border-radius:4px;padding:15px 21px;font-size:10px;letter-spacing:.15em;text-transform:uppercase;cursor:pointer;transition:transform .25s,background .25s,color .25s}.button:hover{transform:translateY(-3px);background:var(--accent);border-color:var(--accent)}.button.secondary{background:transparent;color:var(--ink)}.hero .button{margin-top:20px}.hero-art{height:390px;position:relative;display:grid;place-items:center}.hero-photo{width:min(78%,420px);height:340px;object-fit:cover;border-radius:48% 48% 5px 5px;filter:saturate(.8);box-shadow:0 24px 60px #44372a20;animation:float 6s ease-in-out infinite}.orbit{position:absolute;width:310px;height:310px;border:1px solid #d7cfc2;border-radius:50%;animation:spin 36s linear infinite}.orbit:before,.orbit:after{content:'';position:absolute;width:24px;height:24px;background:#d8c49d;border:1px solid #bca77d;transform:rotate(30deg);top:25px;left:26px;box-shadow:0 0 0 5px var(--paper)}.orbit:after{top:auto;left:auto;right:16px;bottom:50px;background:#b6c0a2}.orbit-label{z-index:3;position:absolute;background:var(--paper);border:1px solid var(--line);padding:8px 10px;font-size:9px;letter-spacing:.12em;text-transform:uppercase}.orbit-label.one{left:1%;top:25%}.orbit-label.two{right:0;bottom:24%}.section{padding:75px 6%}.section-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:30px}.section-head h2{font:500 clamp(30px,4vw,45px) var(--serif);margin:8px 0 0;letter-spacing:-.03em}.section-head p{font-size:12px;color:var(--muted);max-width:280px;line-height:1.7}.filters{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 25px}.filter{border:1px solid var(--line);background:transparent;padding:9px 13px;border-radius:30px;font-size:10px;cursor:pointer;transition:.2s}.filter.active,.filter:hover{background:var(--ink);color:white;border-color:var(--ink)}.products{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:23px}.product-card{min-width:0;animation:fadeUp .7s both}.product-image-wrap{position:relative;background:#e9e2d7;overflow:hidden;aspect-ratio: .92;border-radius:5px}.product-image{width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s cubic-bezier(.2,.7,.2,1)}.product-card:hover .product-image{transform:scale(1.06)}.product-badge{position:absolute;top:14px;left:14px;background:var(--white);padding:7px 9px;font-size:9px;letter-spacing:.1em;text-transform:uppercase}.quick-add{position:absolute;bottom:12px;left:12px;right:12px;transform:translateY(140%);transition:transform .3s}.product-card:hover .quick-add{transform:translateY(0)}.quick-add .button{width:100%;padding:13px}.product-meta{display:flex;justify-content:space-between;gap:12px;margin-top:15px}.product-meta h3{font:500 21px var(--serif);margin:0 0 6px}.product-sub{font-size:10px;color:var(--muted)}.price{font-size:13px;font-weight:700;white-space:nowrap}.stars{font-size:10px;letter-spacing:.08em;color:#ba8b43;margin-top:9px}.feature{margin:20px 6% 70px;background:#e9e2d7;display:grid;grid-template-columns:1fr 1fr;min-height:330px;overflow:hidden;border-radius:5px}.feature-img{width:100%;height:100%;min-height:330px;object-fit:cover}.feature-copy{padding:45px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center}.feature-copy h2{font:500 clamp(30px,4vw,48px)/1.1 var(--serif);margin:13px 0}.feature-copy p{font-size:12px;line-height:1.8;color:#756c61;max-width:360px}.feature-copy .button{margin-top:13px}.values{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;border-top:1px solid var(--line);padding-top:27px}.value{display:flex;gap:13px;align-items:flex-start}.value-icon{font-size:20px}.value strong{font:500 17px var(--serif)}.value p{font-size:11px;line-height:1.6;color:var(--muted);margin:5px 0}.newsletter{background:#e7dfd2;text-align:center;padding:65px 20px}.newsletter h2{font:500 39px var(--serif);margin:10px 0}.newsletter p{font-size:12px;color:var(--muted)}.newsletter-form{display:flex;max-width:440px;margin:25px auto 0;gap:8px}.newsletter input{flex:1;min-width:0;border:1px solid #d2c7b8;background:var(--paper);padding:14px;border-radius:4px;font-size:12px;outline:none}.footer{padding:45px 6% 25px;background:var(--ink);color:#f8f5ef}.footer-top{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap}.footer .brand{font-size:22px}.footer p{font-size:11px;color:#c0b6aa;line-height:1.8;max-width:280px}.footer-links{display:flex;gap:22px;font-size:10px;letter-spacing:.1em;text-transform:uppercase;align-items:flex-start}.copyright{border-top:1px solid #4b433d;margin-top:35px;padding-top:18px;font-size:10px;color:#a89d91;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
-/* Product detail modal and cart */
-.overlay{position:fixed;inset:0;background:#1d1815a8;z-index:50;display:none;align-items:center;justify-content:center;padding:16px}.overlay.open{display:flex;animation:fadeIn .2s}.modal{background:var(--paper);width:min(900px,100%);max-height:92vh;overflow:auto;position:relative;border-radius:6px;animation:popIn .3s}.close{position:absolute;top:13px;right:14px;border:0;background:#f8f5efdd;width:35px;height:35px;border-radius:50%;font-size:20px;cursor:pointer;z-index:2}.detail-layout{display:grid;grid-template-columns:1fr 1fr}.detail-img{width:100%;height:100%;min-height:420px;object-fit:cover}.detail-copy{padding:48px 35px}.detail-copy h2{font:500 42px var(--serif);margin:9px 0}.detail-copy .desc{font-size:12px;line-height:1.9;color:var(--muted)}.detail-price{font-size:20px;font-weight:700;margin:20px 0}.chips{display:flex;gap:7px;flex-wrap:wrap;margin:18px 0}.chip{border:1px solid var(--line);border-radius:30px;padding:8px 10px;font-size:9px;letter-spacing:.04em}.qty{display:flex;align-items:center;border:1px solid var(--line);width:max-content;border-radius:4px;margin:20px 0}.qty button{background:none;border:0;width:37px;height:37px;cursor:pointer;font-size:18px}.qty span{min-width:25px;text-align:center;font-size:12px}.detail-copy .button{width:100%}.cart-panel{background:var(--paper);width:min(430px,100%);height:100%;max-height:100%;margin-left:auto;padding:28px;overflow:auto;animation:slideIn .3s}.overlay.cart-overlay{justify-content:flex-end;padding:0}.cart-heading{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:18px}.cart-heading h2{font:500 28px var(--serif);margin:0}.cart-empty{text-align:center;padding:70px 10px;color:var(--muted);font-size:13px;line-height:1.8}.cart-item{display:grid;grid-template-columns:82px 1fr auto;gap:13px;padding:18px 0;border-bottom:1px solid var(--line);align-items:center}.cart-item img{width:82px;height:88px;object-fit:cover;border-radius:4px}.cart-item h3{font:500 17px var(--serif);margin:0 0 5px}.cart-item p{font-size:11px;color:var(--muted);margin:0 0 8px}.cart-item .qty{margin:0}.remove{border:0;background:none;color:var(--muted);cursor:pointer;font-size:11px;text-decoration:underline;margin-top:7px}.cart-summary{padding-top:22px}.summary-line{display:flex;justify-content:space-between;font-size:12px;margin:10px 0}.summary-line.total{font-weight:700;font-size:15px;border-top:1px solid var(--line);padding-top:16px}.cart-summary .button{width:100%;margin-top:12px}.toast{position:fixed;left:50%;bottom:25px;transform:translate(-50%,20px);background:var(--ink);color:white;padding:13px 20px;border-radius:4px;font-size:12px;z-index:90;opacity:0;pointer-events:none;transition:.25s}.toast.show{opacity:1;transform:translate(-50%,0)}.checkout-form{padding:25px}.checkout-form h2{font:500 32px var(--serif);margin:0 0 20px}.field{display:block;margin:13px 0}.field span{display:block;font-size:10px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:7px}.field input,.field select,.field textarea{width:100%;border:1px solid var(--line);background:#fffdf9;padding:13px;border-radius:4px;outline:none;font-size:12px}.checkout-form .button{width:100%;margin-top:15px}
-@keyframes spin{to{transform:rotate(360deg)}}@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}@keyframes fadeIn{from{opacity:0}to{opacity:1}}@keyframes popIn{from{opacity:0;transform:translateY(15px) scale(.98)}to{opacity:1;transform:none}}@keyframes slideIn{from{transform:translateX(40px);opacity:.6}to{transform:none;opacity:1}}
-@media(max-width:800px){.header{height:68px;padding:0 5%}.nav{gap:15px}.hero{min-height:460px;padding-top:45px;gap:2%}.hero-art{height:320px}.hero-photo{height:285px}.orbit{width:260px;height:260px}.section{padding:58px 5%}.products{gap:15px}.feature{margin:10px 5% 55px}.feature-copy{padding:28px}.detail-copy{padding:35px 25px}}
-@media(max-width:600px){.announcement{font-size:8px}.header{height:64px}.brand{font-size:19px}.brand small{font-size:7px}.nav{display:none;position:absolute;top:63px;left:0;right:0;background:var(--paper);border-bottom:1px solid var(--line);padding:20px 5%;flex-direction:column;gap:20px}.nav.open{display:flex}.menu-toggle{display:inline-block}.header-actions{gap:8px}.hero{grid-template-columns:1fr;padding:48px 6% 35px;text-align:center;gap:15px}.hero-copy{margin:auto}.hero .button{margin-top:18px}.hero-art{grid-row:1;height:280px}.hero-photo{height:240px;width:70%}.orbit{width:230px;height:230px}.orbit-label.one{left:0}.orbit-label.two{right:0}.section{padding:48px 5%}.section-head{align-items:flex-start;gap:10px;flex-direction:column}.section-head p{margin:0}.products{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 12px}.product-image-wrap{aspect-ratio:.8}.quick-add{transform:none;left:7px;right:7px;bottom:7px}.quick-add .button{padding:11px 5px;font-size:8px}.product-meta{margin-top:10px}.product-meta h3{font-size:18px}.price{font-size:11px}.product-sub{font-size:9px}.feature{grid-template-columns:1fr;margin:5px 5% 45px}.feature-img{min-height:230px;height:230px}.feature-copy{padding:30px 25px}.values{grid-template-columns:1fr;gap:17px}.newsletter h2{font-size:32px}.newsletter-form{flex-direction:column}.footer-top{flex-direction:column}.footer-links{flex-wrap:wrap}.detail-layout{grid-template-columns:1fr}.detail-img{height:260px;min-height:0}.detail-copy{padding:25px}.detail-copy h2{font-size:35px}.modal{max-height:95vh}.checkout-form{padding:23px}.cart-panel{padding:22px}}
-@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#07152e">
+  <meta name="description" content="BUTTERFLY — ফুল, উপহার, ভালোবাসা ও সুন্দর মুহূর্তের জগৎ।">
+  <title>BUTTERFLY | Moonlight Dream</title>
 
-.hero-visual{position:relative;width:min(78%,420px);height:340px;border-radius:48% 48% 5px 5px;background:linear-gradient(145deg,#e4d7c4,#c9b79d);box-shadow:0 24px 60px #44372a20;overflow:hidden;animation:float 6s ease-in-out infinite;display:grid;place-items:center}
-.hero-visual:before{content:'';position:absolute;inset:14px;border:1px solid #fff8;border-radius:48% 48% 4px 4px}
-.hero-visual:after{content:'';position:absolute;width:190px;height:190px;border-radius:50%;border:1px solid #fff9;transform:rotate(-20deg)}
-.hero-card{position:absolute;width:116px;height:160px;border-radius:8px;background:#f9f4e9;border:1px solid #cbbba3;box-shadow:0 12px 24px #493d2d20;display:flex;align-items:center;justify-content:center;font:500 26px var(--serif);color:#6d5947}
-.hero-card i,.hero-card b{position:absolute;width:16px;height:16px;border:1px solid #b8a17d;transform:rotate(45deg)}
-.hero-card i{top:12px;left:12px}.hero-card b{bottom:12px;right:12px}
-.hero-card-a{transform:rotate(-13deg) translate(-37px,4px);background:#f8f0df}
-.hero-card-b{transform:rotate(12deg) translate(40px,-8px);background:#c3c9b3;color:#394332}
-.hero-card-c{width:82px;height:112px;transform:rotate(2deg) translate(0,55px);background:#b96f50;color:#fff;z-index:1;font-size:16px}
-.hero-card-c i,.hero-card-c b{border-color:#fff8}
-@media(max-width:800px){.hero-visual{height:285px}}
-@media(max-width:600px){.hero-visual{height:240px;width:70%}}
+  <style>
+    :root {
+      --night: #07152e;
+      --blue: #10264a;
+      --gold: #e9d5a1;
+      --white: #fffdf7;
+      --muted: #c7d2e4;
+      --panel: rgba(255,255,255,.07);
+    }
 
-</style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--night);
+      color: var(--white);
+      font-family: Arial, "Noto Sans Bengali", sans-serif;
+      line-height: 1.7;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    button, a { -webkit-tap-highlight-color: transparent; }
+
+    .stars {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
+      background:
+        radial-gradient(circle at 12% 15%, #ffffff9c 1px, transparent 2px),
+        radial-gradient(circle at 75% 12%, #ffffff8c 1px, transparent 2px),
+        radial-gradient(circle at 45% 38%, #ffffff80 1px, transparent 2px),
+        radial-gradient(circle at 90% 52%, #ffffff90 1px, transparent 2px),
+        radial-gradient(circle at 20% 78%, #ffffff80 1px, transparent 2px),
+        linear-gradient(160deg, #07152e, #10264a 60%, #09142c);
+      background-size: 180px 180px, 240px 240px,
+        200px 200px, 260px 260px, 220px 220px, auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 6%;
+      background: rgba(7,21,46,.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #ffffff16;
+    }
+
+    .logo {
+      font-size: 23px;
+      letter-spacing: 3px;
+      font-weight: 800;
+      color: var(--gold);
+    }
+
+    .logo span { color: white; }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      font-size: 13px;
+    }
+
+    nav a:hover { color: var(--gold); }
+
+    .hero {
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 75px 20px;
+      overflow: hidden;
+    }
+
+    .moon {
+      width: 105px;
+      height: 105px;
+      border-radius: 50%;
+      margin-bottom: 25px;
+      background: #fff7d8;
+      box-shadow: 0 0 25px #fff5c780, 0 0 90px #91baff38;
+      position: relative;
+    }
+
+    .moon::after {
+      content: "";
+      position: absolute;
+      width: 94px;
+      height: 94px;
+      top: -8px;
+      left: 25px;
+      border-radius: 50%;
+      background: #10264a;
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      letter-spacing: 4px;
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: clamp(42px, 10vw, 76px);
+      line-height: 1.15;
+      margin: 18px 0;
+      letter-spacing: 2px;
+    }
+
+    h1 span { color: var(--gold); }
+
+    .hero p {
+      max-width: 570px;
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 23px;
+      border-radius: 30px;
+      border: 1px solid var(--gold);
+      background: var(--gold);
+      color: var(--night);
+      font-weight: bold;
+      cursor: pointer;
+      transition: .25s;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px #e9d5a128;
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+    }
+
+    section { padding: 65px 6%; }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(27px, 5vw, 38px);
+      margin-bottom: 8px;
+    }
+
+    .section-heading p { color: var(--muted); }
+
+    .categories, .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .category, .product, .about-card {
+      background: var(--panel);
+      border: 1px solid #ffffff18;
+      border-radius: 18px;
+      overflow: hidden;
+      transition: .3s;
+    }
+
+    .category:hover, .product:hover {
+      transform: translateY(-5px);
+      border-color: #e9d5a17a;
+    }
+
+    .category {
+      text-align: center;
+      padding: 30px 18px;
+    }
+
+    .category .emoji {
+      font-size: 43px;
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    .category p, .product p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .product-art {
+      min-height: 165px;
+      display: grid;
+      place-items: center;
+      font-size: 65px;
+      background: linear-gradient(145deg, #1a3459, #0a1831);
+    }
+
+    .product-info { padding: 20px; }
+
+    .product-info h3 { margin-bottom: 8px; }
+
+    .product-info p { margin-bottom: 15px; }
+
+    .product-info .btn {
+      font-size: 13px;
+      padding: 9px 16px;
+    }
+
+    .notice {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 25px;
+      text-align: center;
+    }
+
+    .about-card {
+      max-width: 760px;
+      margin: auto;
+      text-align: center;
+      padding: 35px 25px;
+    }
+
+    .about-card p { color: var(--muted); }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    footer {
+      text-align: center;
+      border-top: 1px solid #ffffff18;
+      padding: 25px 15px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    footer a { color: var(--gold); }
+
+    @media (max-width: 480px) {
+      header { padding: 12px 4%; }
+      .logo { font-size: 19px; letter-spacing: 2px; }
+      nav { gap: 9px; font-size: 11px; }
+      section { padding: 50px 5%; }
+      .hero { min-height: 75vh; }
+    }
+  </style>
 </head>
+
 <body>
-<div class="announcement">Thoughtfully made for the moments that bring us together · Free delivery on orders over ৳1,500</div>
-<header class="header">
-  <button class="icon-btn menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
-  <a class="brand" href="#home">SANADI<small>COLLECTION</small></a>
-  <nav class="nav" id="nav"><a href="#shop">Shop all</a><a href="#story">Our story</a><a href="#values">Why SANADI</a><a href="#newsletter">Journal</a></nav>
-  <div class="header-actions"><button class="icon-btn" id="searchBtn" aria-label="Search">⌕</button><button class="icon-btn" id="cartBtn" aria-label="Open cart">♧<span class="cart-count" id="cartCount">0</span></button></div>
-</header>
-<main id="home">
-<section class="hero">
-  <div class="hero-text"><div class="eyebrow">Small moments. Big memories.</div><h1>Make room<br>for <em>play.</em></h1><p class="hero-copy">Discover thoughtfully chosen products, considered details, and a shopping experience designed to feel effortless.</p><a href="#shop" class="button">Explore the collection <span>↗</span></a></div>
-  <div class="hero-art"><div class="orbit"></div><span class="orbit-label one">Made to gather</span><span class="orbit-label two">Designed with care</span><div class="hero-visual" aria-hidden="true"><div class="hero-card hero-card-a"><span>S</span><i></i><b></b></div><div class="hero-card hero-card-b"><span>✳</span><i></i><b></b></div><div class="hero-card hero-card-c"><span>PLAY</span><i></i><b></b></div></div></div>
-</section>
-<section class="section" id="shop">
-  <div class="section-head"><div><div class="eyebrow">The good stuff</div><h2>Find your kind of fun.</h2></div><p>Explore the collection and find something made for you or someone special.</p></div>
-  <div class="filters" role="group" aria-label="Filter products"><button class="filter active" data-filter="all">All products</button><button class="filter" data-filter="card">Card games</button><button class="filter" data-filter="board">Board games</button><button class="filter" data-filter="gift">Gifts & sets</button></div>
-  <div class="products" id="products"></div>
-</section>
-<section class="feature" id="story"><img class="feature-img" src="https://images.unsplash.com/photo-1610890716171-6b1bb98ffd09?auto=format&fit=crop&w=1000&q=85" alt=""><div class="feature-copy"><div class="eyebrow">A little more together</div><h2>Thoughtful finds.<br><em>Everyday joy.</em></h2><p>We believe shopping should feel simple, considered, and enjoyable. We are building a collection with attention to the details that matter.</p><a class="button secondary" href="#shop">Meet the collection ↗</a></div></section>
-<section class="section" id="values"><div class="section-head"><div><div class="eyebrow">The SANADI promise</div><h2>Good things, thoughtfully made.</h2></div></div><div class="values"><div class="value"><div class="value-icon">✳</div><div><strong>Made for connection</strong><p>Playful products that turn ordinary evenings into shared memories.</p></div></div><div class="value"><div class="value-icon">◇</div><div><strong>Design with intention</strong><p>Every detail is considered, from the first look to the last round.</p></div></div><div class="value"><div class="value-icon">♡</div><div><strong>Local care, always</strong><p>Friendly support and careful packaging for every order.</p></div></div></div></section>
-<section class="newsletter" id="newsletter"><div class="eyebrow">Letters from SANADI</div><h2>A little joy in your inbox.</h2><p>New releases, play ideas, and thoughtful things. No noise.</p><form class="newsletter-form" id="newsletterForm"><input type="email" id="newsletterEmail" placeholder="Your email address" aria-label="Your email address" required><button class="button" type="submit">Count me in ↗</button></form></section>
-</main>
-<footer class="footer"><div class="footer-top"><div><a class="brand" href="#home">SANADI<small>COLLECTION</small></a><p>Thoughtfully chosen products and thoughtful details for everyday life.</p></div><div class="footer-links"><a href="#shop">Shop</a><a href="#story">Our story</a><a href="mailto:hello@sanadi.example">Contact</a><a href="#newsletter">Newsletter</a></div></div><div class="copyright"><span>© 2026 SANADI. Made with care.</span><span>Bangladesh · BDT ৳</span></div></footer>
+  <div class="stars"></div>
 
-<div class="overlay" id="detailOverlay" aria-hidden="true"><div class="modal"><button class="close" data-close="detailOverlay" aria-label="Close">×</button><div id="detailContent"></div></div></div>
-<div class="overlay cart-overlay" id="cartOverlay" aria-hidden="true"><div class="cart-panel"><div class="cart-heading"><h2>Your bag <span id="bagCount" style="font:12px var(--sans);color:var(--muted)">(0)</span></h2><button class="close" data-close="cartOverlay" style="position:static" aria-label="Close cart">×</button></div><div id="cartContent"></div></div></div>
-<div class="overlay" id="checkoutOverlay" aria-hidden="true"><div class="modal" style="max-width:520px"><button class="close" data-close="checkoutOverlay" aria-label="Close">×</button><form class="checkout-form" id="checkoutForm"><div class="eyebrow">Almost yours</div><h2>Delivery details</h2><p style="font-size:12px;color:var(--muted);line-height:1.7">This demo prepares your order for WhatsApp. No payment is collected on this sample website.</p><label class="field"><span>Full name</span><input id="customerName" required placeholder="Your name"></label><label class="field"><span>Phone number</span><input id="customerPhone" type="tel" required placeholder="01XXXXXXXXX"></label><label class="field"><span>Delivery address</span><textarea id="customerAddress" rows="3" required placeholder="House, road, area, city"></textarea></label><label class="field"><span>Payment method</span><select id="paymentMethod"><option>Cash on delivery</option><option>bKash (confirm with seller)</option><option>Rocket (confirm with seller)</option></select></label><button class="button" type="submit">Prepare WhatsApp order ↗</button></form></div></div>
-<div class="toast" id="toast" role="status"></div>
-<script>
-const products = [
- {id:1,name:'Halum',category:'card',type:'A Uno-inspired card game',price:450,oldPrice:null,badge:'Bestseller',rating:'★★★★★',reviews:32,players:'2–8 players',time:'20–30 min',age:'Ages 7+',img:'https://images.unsplash.com/photo-1606503153255-59d8b8b821c8?auto=format&fit=crop&w=900&q=85',desc:'A Uno-inspired card game with added power cards, Bangla flavour, and way more fun. Fast-paced, hilarious, and perfect for game nights with family and friends.'},
- {id:2,name:'The Gathering',category:'board',type:'A strategy board game',price:890,badge:'New arrival',rating:'★★★★★',reviews:18,players:'2–4 players',time:'30–45 min',age:'Ages 10+',img:'https://images.unsplash.com/photo-1610890716171-6b1bb98ffd09?auto=format&fit=crop&w=900&q=85',desc:'Build your strategy, make surprising moves, and bring everyone to the edge of their seat. A thoughtful game for friendly rivalries and memorable evenings.'},
- {id:3,name:'Little Moments',category:'gift',type:'Conversation card set',price:590,rating:'★★★★★',reviews:24,players:'2–6 players',time:'15–25 min',age:'Ages 12+',img:'https://images.unsplash.com/photo-1606167668584-78701c57f13d?auto=format&fit=crop&w=900&q=85',desc:'A pocket-sized collection of prompts to spark stories, laughter, and conversations you might not have had otherwise. Lovely for friends, family, and gifting.'},
- {id:4,name:'Game Night Kit',category:'gift',type:'A ready-to-gift bundle',price:1250,badge:'Gift favourite',rating:'★★★★★',reviews:16,players:'2–8 players',time:'20–45 min',age:'Ages 7+',img:'https://images.unsplash.com/photo-1611371805429-8b5c1b2b9a5b?auto=format&fit=crop&w=900&q=85',desc:'Everything you need to host a cozy game night. A curated bundle for birthdays, housewarmings, or simply making an ordinary night feel special.'},
- {id:5,name:'Colour Clash',category:'card',type:'A quick-play card game',price:390,rating:'★★★★☆',reviews:12,players:'2–6 players',time:'10–20 min',age:'Ages 6+',img:'https://images.unsplash.com/photo-1632501641765-e568d28b0015?auto=format&fit=crop&w=900&q=85',desc:'Quick rounds, bold choices, and just enough chaos to keep everyone asking for one more game. Easy to learn and fun to replay.'},
- {id:6,name:'The Weekend Box',category:'board',type:'A tabletop collection',price:1490,badge:'Limited set',rating:'★★★★★',reviews:9,players:'2–6 players',time:'30+ min',age:'Ages 8+',img:'https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?auto=format&fit=crop&w=900&q=85',desc:'A collection for long weekends and longer conversations. Bring your favourite people together for a screen-free afternoon full of surprises.'}
-];
-let cart = [];
-let detailQty = 1;
-const money = n => '৳'+n.toLocaleString('en-BD');
-const productsEl=document.getElementById('products');
-function renderProducts(filter='all',query=''){
- const shown=products.filter(p=>(filter==='all'||p.category===filter)&&(p.name+' '+p.type).toLowerCase().includes(query.toLowerCase()));
- productsEl.innerHTML=shown.map((p,i)=>`<article class="product-card" style="animation-delay:${i*.07}s"><div class="product-image-wrap"><img class="product-image" src="${p.img}" alt="" loading="lazy"><span class="product-badge">${p.badge||'Made for play'}</span><div class="quick-add"><button class="button" onclick="addToCart(${p.id},1)">Add to bag · ${money(p.price)} +</button></div></div><div class="product-meta"><div><h3><a href="#product-${p.id}" onclick="event.preventDefault();openDetail(${p.id})">${p.name}</a></h3><div class="product-sub">${p.type}</div><div class="stars">${p.rating} <span style="color:var(--muted);letter-spacing:0">(${p.reviews})</span></div></div><div class="price">${money(p.price)}</div></div></article>`).join('')||'<p style="color:var(--muted);font-size:13px">No products found. Try another search.</p>';
-}
-function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>t.classList.remove('show'),2400)}
-function addToCart(id,qty=1){const p=products.find(x=>x.id===id);const found=cart.find(x=>x.id===id);if(found)found.qty+=qty;else cart.push({id,qty});updateCart();toast(p.name+' added to your bag');}
-function updateCart(){document.getElementById('cartCount').textContent=cart.reduce((s,x)=>s+x.qty,0);document.getElementById('bagCount').textContent='('+cart.reduce((s,x)=>s+x.qty,0)+')';renderCart()}
-function renderCart(){const el=document.getElementById('cartContent');if(!cart.length){el.innerHTML='<div class="cart-empty"><div style="font-size:35px;margin-bottom:15px">♧</div>Your bag is taking a little break.<br>Find something that brings people together.<br><button class="button" style="margin-top:22px" onclick="closeOverlay(\'cartOverlay\');document.getElementById(\'shop\').scrollIntoView({behavior:\'smooth\'})">Explore products ↗</button></div>';return}
- const subtotal=cart.reduce((s,x)=>s+products.find(p=>p.id===x.id).price*x.qty,0);const shipping=subtotal>=1500?0:80;
- el.innerHTML=cart.map(x=>{const p=products.find(y=>y.id===x.id);return `<div class="cart-item"><img src="${p.img}" alt=""><div><h3>${p.name}</h3><p>${money(p.price)}</p><div class="qty"><button onclick="changeQty(${p.id},-1)" aria-label="Decrease quantity">−</button><span>${x.qty}</span><button onclick="changeQty(${p.id},1)" aria-label="Increase quantity">+</button></div><button class="remove" onclick="removeItem(${p.id})">Remove</button></div><strong style="font-size:12px">${money(p.price*x.qty)}</strong></div>`}).join('')+`<div class="cart-summary"><div class="summary-line"><span>Subtotal</span><span>${money(subtotal)}</span></div><div class="summary-line"><span>Delivery</span><span>${shipping?money(shipping):'Free'}</span></div><div class="summary-line total"><span>Total</span><span>${money(subtotal+shipping)}</span></div><button class="button" onclick="openCheckout()">Continue to checkout ↗</button><p style="font-size:10px;color:var(--muted);text-align:center;line-height:1.7">Shipping calculated at checkout. Payment details confirmed with seller.</p></div>`;
-}
-function changeQty(id,delta){const x=cart.find(y=>y.id===id);if(!x)return;x.qty+=delta;if(x.qty<=0)cart=cart.filter(y=>y.id!==id);updateCart()}
-function removeItem(id){cart=cart.filter(x=>x.id!==id);updateCart();toast('Item removed')}
-function openDetail(id){const p=products.find(x=>x.id===id);detailQty=1;document.getElementById('detailContent').innerHTML=`<div class="detail-layout"><img class="detail-img" src="${p.img}" alt=""><div class="detail-copy"><div class="eyebrow">SANADI collection</div><h2>${p.name}</h2><div style="font-size:11px;color:var(--muted)">${p.rating} &nbsp; ${p.reviews} reviews</div><div class="detail-price">${money(p.price)} <span style="font-size:9px;color:var(--muted);font-weight:400">BDT</span></div><p class="desc">${p.desc}</p><div class="chips"><span class="chip">♙ ${p.players}</span><span class="chip">◷ ${p.time}</span><span class="chip">✳ ${p.age}</span></div><div style="font-size:10px;letter-spacing:.1em;text-transform:uppercase">Quantity</div><div class="qty"><button onclick="detailChange(-1)">−</button><span id="detailQty">1</span><button onclick="detailChange(1)">+</button></div><button class="button" onclick="addToCart(${p.id},detailQty);closeOverlay('detailOverlay');openCart()">Add to bag — ${money(p.price)} ↗</button><p style="font-size:10px;color:var(--muted);line-height:1.7;margin-top:18px">✓ Secure order handling &nbsp; ✓ Carefully packed &nbsp; ✓ Delivery across Bangladesh</p></div></div>`;openOverlay('detailOverlay')}
-function detailChange(d){detailQty=Math.max(1,detailQty+d);document.getElementById('detailQty').textContent=detailQty}
-function openOverlay(id){document.getElementById(id).classList.add('open');document.getElementById(id).setAttribute('aria-hidden','false');document.body.style.overflow='hidden'}
-function closeOverlay(id){document.getElementById(id).classList.remove('open');document.getElementById(id).setAttribute('aria-hidden','true');if(!document.querySelector('.overlay.open'))document.body.style.overflow=''}
-function openCart(){renderCart();openOverlay('cartOverlay')}
-function openCheckout(){if(!cart.length)return;closeOverlay('cartOverlay');openOverlay('checkoutOverlay')}
-document.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click',()=>closeOverlay(b.dataset.close)));
-document.querySelectorAll('.overlay').forEach(o=>o.addEventListener('click',e=>{if(e.target===o)closeOverlay(o.id)}));
-document.addEventListener('keydown',e=>{if(e.key==='Escape')document.querySelectorAll('.overlay.open').forEach(o=>closeOverlay(o.id))});
-document.getElementById('cartBtn').addEventListener('click',openCart);
-document.getElementById('menuToggle').addEventListener('click',()=>document.getElementById('nav').classList.toggle('open'));
-document.querySelectorAll('.nav a').forEach(a=>a.addEventListener('click',()=>document.getElementById('nav').classList.remove('open')));
-document.querySelectorAll('.filter').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active'));b.classList.add('active');renderProducts(b.dataset.filter)}));
-document.getElementById('searchBtn').addEventListener('click',()=>{const q=prompt('What are you looking for?');if(q!==null){document.getElementById('shop').scrollIntoView({behavior:'smooth'});document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active'));document.querySelector('[data-filter="all"]').classList.add('active');renderProducts('all',q)}});
-document.getElementById('newsletterForm').addEventListener('submit',e=>{e.preventDefault();toast('Thanks for joining the SANADI list!');e.target.reset()});
-document.getElementById('checkoutForm').addEventListener('submit',e=>{e.preventDefault();const name=document.getElementById('customerName').value.trim(),phone=document.getElementById('customerPhone').value.trim(),address=document.getElementById('customerAddress').value.trim(),payment=document.getElementById('paymentMethod').value;const subtotal=cart.reduce((s,x)=>s+products.find(p=>p.id===x.id).price*x.qty,0),shipping=subtotal>=1500?0:80;const lines=cart.map(x=>{const p=products.find(y=>y.id===x.id);return `• ${p.name} × ${x.qty} — ${money(p.price*x.qty)}`}).join('\\n');const msg=`Hello SANADI! I'd like to place an order.\\n\\n${lines}\\n\\nSubtotal: ${money(subtotal)}\\nDelivery: ${shipping?money(shipping):'Free'}\\nTotal: ${money(subtotal+shipping)}\\n\\nName: ${name}\\nPhone: ${phone}\\nAddress: ${address}\\nPayment: ${payment}`;closeOverlay('checkoutOverlay');toast('Order message prepared. Add your WhatsApp number in the code to send it.');const whatsappNumber='';if(whatsappNumber){window.open('https://wa.me/'+whatsappNumber+'?text='+encodeURIComponent(msg),'_blank')}else{const w=window.open('','_blank');if(w){w.document.write('<title>Order summary</title><body style="font:16px Arial;max-width:650px;margin:40px auto;padding:20px;white-space:pre-wrap"><h2>Order summary</h2><p>'+msg.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\\n/g,'<br>')+'</p><p>To enable direct WhatsApp ordering, add your business WhatsApp number in the website script.</p></body>')}cart=[];updateCart()}});
+  <header>
+    <a class="logo" href="#home">BUTTERFLY<span> ✦</span></a>
+    <nav aria-label="প্রধান মেনু">
+      <a href="#home">হোম</a>
+      <a href="#categories">ক্যাটাগরি</a>
+      <a href="#shop">পণ্য</a>
+      <a href="#about">আমাদের সম্পর্কে</a>
+    </nav>
+  </header>
 
-document.addEventListener('error',function(e){
- if(e.target && e.target.tagName==='IMG'){
-   e.target.style.visibility='hidden';
-   if(e.target.classList.contains('product-image') || e.target.classList.contains('detail-img') || e.target.closest('.cart-item')){
-     e.target.style.background='#e9e2d7';
-   }
- }
-},true);
+  <main>
+    <section class="hero" id="home">
+      <div class="moon" aria-hidden="true"></div>
+      <div class="eyebrow">A Little World of Love</div>
+      <h1>Welcome to<br><span>BUTTERFLY</span></h1><p class="love-message">I Always Love You, Butterfly 🦋</p>
+      <p>
+        চাঁদের আলো, সাদা ফুল আর ভালোবাসার ছোট ছোট মুহূর্ত।
+        আপনার প্রিয় মানুষটির জন্য খুঁজে নিন সুন্দর উপহারের আইডিয়া।
+      </p>
+      <a class="btn" href="#shop">আবিষ্কার করুন ✧</a>
+    </section>
 
-renderProducts();updateCart();
-</script>
+    <section id="categories">
+      <div class="section-heading">
+        <div class="eyebrow">Explore Our World</div>
+        <h2>আমাদের ক্যাটাগরি</h2>
+        <p>প্রতিটি ছোট উপহারেই থাকুক বড় ভালোবাসা।</p>
+      </div>
+
+      <div class="categories">
+        <article class="category">
+          <span class="emoji">💐</span>
+          <h3>ফুল ও গিফট</h3>
+          <p>বিশেষ মুহূর্তের জন্য সুন্দর উপহারের আইডিয়া।</p>
+        </article>
+
+        <article class="category">
+          <span class="emoji">🎁</span>
+          <h3>Gift Accessories</h3>
+          <p>প্রিয়জনকে চমকে দেওয়ার ছোট ছোট উপহার।</p>
+        </article>
+
+        <article class="category">
+          <span class="emoji">🌙</span>
+          <h3>Room Decor</h3>
+          <p>নিজের ঘর সাজিয়ে তুলুন স্বপ্নের মতো।</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="shop">
+      <div class="section-heading">
+        <div class="eyebrow">Handpicked Ideas</div>
+        <h2>পছন্দের কিছু পণ্য</h2>
+        <p>আপনার পছন্দের উপহার খুঁজে নিতে নিচের পণ্যগুলো দেখুন।</p>
+      </div>
+
+      <div class="products">
+        <article class="product">
+          <div class="product-art" aria-hidden="true">💐</div>
+          <div class="product-info">
+            <h3>Artificial Flower Bouquet</h3>
+            <p>ঘর সাজানো বা উপহার দেওয়ার জন্য ফুলের আইডিয়া।</p>
+            <a class="btn btn-outline affiliate-link"
+               href="#"
+               data-product="flower"
+               target="_blank"
+               rel="nofollow sponsored noopener">
+              পণ্য দেখুন ↗
+            </a>
+          </div>
+        </article>
+
+        <article class="product">
+          <div class="product-art" aria-hidden="true">🎁</div>
+          <div class="product-info">
+            <h3>Gift Box</h3>
+            <p>জন্মদিন ও বিশেষ দিনের জন্য উপহারের সাজেশন।</p>
+            <a class="btn btn-outline affiliate-link"
+               href="#"
+               data-product="gift"
+               target="_blank"
+               rel="nofollow sponsored noopener">
+              পণ্য দেখুন ↗
+            </a>
+          </div>
+        </article>
+
+        <article class="product">
+          <div class="product-art" aria-hidden="true">✨</div>
+          <div class="product-info">
+            <h3>Decorative Lights</h3>
+            <p>ঘরের পরিবেশ সুন্দর করতে ডেকোরেটিভ লাইটের আইডিয়া।</p>
+            <a class="btn btn-outline affiliate-link"
+               href="#"
+               data-product="lights"
+               target="_blank"
+               rel="nofollow sponsored noopener">
+              পণ্য দেখুন ↗
+            </a>
+          </div>
+        </article>
+      </div>
+
+      <p class="notice">
+        প্রকাশ: কিছু লিংক Affiliate Link হতে পারে।
+        সেগুলোর মাধ্যমে যোগ্য কেনাকাটা হলে আমরা কমিশন পেতে পারি।
+        পণ্যের দাম ও প্রাপ্যতা বিক্রেতার ওয়েবসাইটে যাচাই করুন।
+      </p>
+    </section>
+
+    <section id="about">
+      <div class="section-heading">
+        <div class="eyebrow">Our Story</div>
+        <h2>BUTTERFLY সম্পর্কে</h2>
+      </div>
+
+      <div class="about-card">
+        <p>
+          BUTTERFLY হলো ভালোবাসা, উপহার ও সুন্দর মুহূর্তের জন্য
+          তৈরি একটি ছোট অনলাইন গাইড। আমাদের লক্ষ্য হলো আপনাকে
+          পছন্দের পণ্য খুঁজে পেতে সাহায্য করা।
+        </p>
+        <div class="contact-links">
+          <a class="btn btn-outline" href="#shop">পণ্য দেখুন</a>
+          <a class="btn btn-outline" href="#home">উপরে ফিরে যান ↑</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="year"></span> BUTTERFLY. All rights reserved.</p>
+    <p>Made with ♡ under the moonlight.</p>
+    <p><a href="#about">Affiliate Disclosure</a></p>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    /*
+      Affiliate link বসানোর নিয়ম:
+      নিচের প্রতিটি URL-এর জায়গায় সংশ্লিষ্ট পণ্যের
+      নিজের অনুমোদিত Affiliate URL বসাবে।
+      অনুমোদন না পাওয়া পর্যন্ত বাটনগুলো কার্যকর হবে না।
+    */
+
+    const affiliateLinks = {
+      flower: "",
+      gift: "",
+      lights: ""
+    };
+
+    document.querySelectorAll(".affiliate-link").forEach(link => {
+      const product = link.dataset.product;
+      const url = affiliateLinks[product];
+
+      if (url) {
+        link.href = url;
+      } else {
+        link.addEventListener("click", event => {
+          event.preventDefault();
+          alert("এই পণ্যের Affiliate Link এখনো যোগ করা হয়নি।");
+        });
+      }
+    });
+  </script>
 </body>
-</html>
+  </html>
